@@ -96,7 +96,7 @@ export default class MultiSlider extends React.Component {
       createArray(this.props.min, this.props.max, this.props.step);
     this.stepLength = this.props.sliderLength / this.optionsArray.length;
 
-    var initialValues = this.props.values.map(value =>
+    const initialValues = this.props.values.map(value =>
       valueToPosition(value, this.optionsArray, this.props.sliderLength));
 
     this.state = {
@@ -111,7 +111,7 @@ export default class MultiSlider extends React.Component {
   }
 
   componentWillMount() {
-    var customPanResponder = (start, move, end) => {
+    const customPanResponder = (start, move, end) => {
       return PanResponder.create({
         onStartShouldSetPanResponder: (evt, gestureState) => true,
         onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
@@ -157,7 +157,7 @@ export default class MultiSlider extends React.Component {
 
       this.stepLength = this.props.sliderLength / this.optionsArray.length;
 
-      var positionOne = valueToPosition(
+      const positionOne = valueToPosition(
         nextProps.values[0],
         this.optionsArray,
         nextProps.sliderLength,
@@ -166,7 +166,7 @@ export default class MultiSlider extends React.Component {
       nextState.pastOne = positionOne;
       nextState.positionOne = positionOne;
 
-      var positionTwo = valueToPosition(
+      const positionTwo = valueToPosition(
         nextProps.values[1],
         this.optionsArray,
         nextProps.sliderLength,
@@ -204,22 +204,22 @@ export default class MultiSlider extends React.Component {
       return;
     }
 
-    var unconfined = gestureState.dx + this.state.pastOne;
-    var bottom = 0;
-    var trueTop = this.state.positionTwo - (this.props.allowOverlap ? 0 : this.stepLength);
-    var top = trueTop === 0 ? 0 : trueTop || this.props.sliderLength;
-    var confined = unconfined < bottom
+    const unconfined = gestureState.dx + this.state.pastOne;
+    const bottom = 0;
+    const trueTop = this.state.positionTwo - (this.props.allowOverlap ? 0 : this.stepLength);
+    const top = trueTop === 0 ? 0 : trueTop || this.props.sliderLength;
+    const confined = unconfined < bottom
       ? bottom
       : unconfined > top ? top : unconfined;
-    var slipDisplacement = this.props.touchDimensions.slipDisplacement;
+    const slipDisplacement = this.props.touchDimensions.slipDisplacement;
 
     if (Math.abs(gestureState.dy) < slipDisplacement || !slipDisplacement) {
-      var value = positionToValue(
+      const value = positionToValue(
         confined,
         this.optionsArray,
         this.props.sliderLength,
       );
-      var snapped = valueToPosition(
+      const snapped = valueToPosition(
         value,
         this.optionsArray,
         this.props.sliderLength,
@@ -234,7 +234,7 @@ export default class MultiSlider extends React.Component {
             valueOne: value,
           },
           () => {
-            var change = [this.state.valueOne];
+            const change = [this.state.valueOne];
             if (this.state.valueTwo) {
               change.push(this.state.valueTwo);
             }
@@ -250,21 +250,21 @@ export default class MultiSlider extends React.Component {
       return;
     }
 
-    var unconfined = gestureState.dx + this.state.pastTwo;
-    var bottom = this.state.positionOne + (this.props.allowOverlap ? 0 : this.stepLength);
-    var top = this.props.sliderLength;
-    var confined = unconfined < bottom
+    const unconfined = gestureState.dx + this.state.pastTwo;
+    const bottom = this.state.positionOne + (this.props.allowOverlap ? 0 : this.stepLength);
+    const top = this.props.sliderLength;
+    const confined = unconfined < bottom
       ? bottom
       : unconfined > top ? top : unconfined;
-    var slipDisplacement = this.props.touchDimensions.slipDisplacement;
+    const slipDisplacement = this.props.touchDimensions.slipDisplacement;
 
     if (Math.abs(gestureState.dy) < slipDisplacement || !slipDisplacement) {
-      var value = positionToValue(
+      const value = positionToValue(
         confined,
         this.optionsArray,
         this.props.sliderLength,
       );
-      var snapped = valueToPosition(
+      const snapped = valueToPosition(
         value,
         this.optionsArray,
         this.props.sliderLength,
@@ -299,7 +299,7 @@ export default class MultiSlider extends React.Component {
         onePressed: !this.state.onePressed,
       },
       () => {
-        var change = [this.state.valueOne];
+        const change = [this.state.valueOne];
         if (this.state.valueTwo) {
           change.push(this.state.valueTwo);
         }

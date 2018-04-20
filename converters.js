@@ -48,8 +48,8 @@ export function valueToPosition(value, valuesArray, sliderLength) {
 }
 
 export function positionToValue(position, valuesArray, sliderLength) {
-  var arrLength;
-  var index;
+  let arrLength;
+  let index;
 
   if (position < 0 || sliderLength < position) {
     return null;
@@ -61,10 +61,10 @@ export function positionToValue(position, valuesArray, sliderLength) {
 }
 
 export function createArray(start, end, step) {
-  var i;
-  var length;
-  var direction = start - end > 0 ? -1 : 1;
-  var result = [];
+  let i;
+  let length;
+  const direction = start - end > 0 ? -1 : 1;
+  const result = [];
   if (!step) {
     //console.log('invalid step: ', step);
     return result;
