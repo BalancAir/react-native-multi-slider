@@ -5,7 +5,7 @@
   "main": "MultiSlider.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ptomasroos/react-native-multi-slider.git"
+    "url": "git+ssh://git@github.com/BalancAir/react-native-multi-slider.git"
   },
   "keywords": [
     "react-native-multi-slider",
